@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Fauzan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #e0f0ff;
+      text-align: center;
+      padding: 2rem 1rem;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #005f99;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      padding: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      filter: contrast(120%) brightness(110%) saturate(120%);
+      animation: popIn 0.6s ease-in-out;
+    }
+
+    .wishes-section {
+      padding: 1rem;
+      background-color: #ffffff;
+    }
+
+    .wishes-section h2 {
+      color: #005f99;
+      font-size: 1.2rem;
+    }
+
+    .wish-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.6rem;
+    }
+
+    .wish-form button {
+      background-color: #005f99;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.6rem;
+    }
+
+    .wish-form button:hover {
+      background-color: #004b7a;
+    }
+
+    .wish-list {
+      margin-top: 1rem;
+    }
+
+    .wish-item {
+      background-color: #f0f8ff;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 8px;
+      font-size: 0.6rem;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      100% { opacity: 0.85; }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/08/28/audio_38522ce5f7.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <header>
+    <h1>Happy Birthday Fauzan!</h1>
+    <p>Celebrating on May 15 🎉</p>
+  </header>
+
+  <section class="gallery">
+    <!-- Replace the src with your own image URLs -->
+    <img src="https://via.placeholder.com/300x200?text=Memory+1" alt="Memory 1">
+    <img src="https://via.placeholder.com/300x200?text=Memory+2" alt="Memory 2">
+    <img src="https://via.placeholder.com/300x200?text=Memory+3" alt="Memory 3">
+    <img src="https://via.placeholder.com/300x200?text=Memory+4" alt="Memory 4">
+  </section>
+
+  <section class="wishes-section">
+    <h2>Send a Birthday Wish 🎂</h2>
+    <form class="wish-form" onsubmit="addWish(event)">
+      <textarea id="wishInput" rows="3" placeholder="Type your message here..."></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <div class="wish-list" id="wishList">
+      <!-- Wishes will appear here -->
+    </div>
+  </section>
+
+  <script>
+    function addWish(event) {
+      event.preventDefault();
+      const input = document.getElementById('wishInput');
+      const wishText = input.value.trim();
+      if (wishText) {
+        const wishList = document.getElementById('wishList');
+        const div = document.createElement('div');
+        div.className = 'wish-item';
+        div.textContent = wishText;
+        wishList.prepend(div);
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
